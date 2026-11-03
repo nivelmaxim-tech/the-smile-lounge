@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="The Smile Lounge – clinică stomatologică în centrul Constanței. Diagnostic 3D în clinică, plan de tratament și prețuri explicate înainte să începi. Programări: +40 739 600 606.">
+<title>The Smile Lounge Constanța</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: pagină de clinică pentru pacienți fricoși; ton calm, mult spațiu; erou cu „ce primești la consultație”, apoi metoda în 3 pași, recenzii, echipă, tratamente cu prețuri, FAQ, contact. Detaliu de domeniu: prețurile și pașii ca într-un plan de tratament. */
+:root{
+  --porcelain:#F5F6F2; --surface:#FFFFFF; --ink:#1A2A2E; --muted:#526266; --line:#D9DED8;
+  --lagoon:#0D625E; --lagoon-ink:#0A4F4B; --lagoon-soft:#E3EFEC; --on-lagoon:#F2F7F5; --on-lagoon-muted:#B7D3CE;
+  --butter:#F1DE97; --butter-ink:#5C4A0B;
+  --flag-bg:#FDF3DC; --flag-line:#C9A23B; --flag-ink:#6B5210;
+  --f-display:"Gloock",Georgia,"Times New Roman",serif;
+  --f-body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --porcelain:#0F1A1C; --surface:#152427; --ink:#E7EEEC; --muted:#A3B4B2; --line:#28393C;
+  --lagoon:#0F5B57; --lagoon-ink:#7CCFC7; --lagoon-soft:#173634; --on-lagoon:#F2F7F5; --on-lagoon-muted:#B7D3CE;
+  --butter:#E9D27D; --butter-ink:#E9D27D;
+  --flag-bg:#2B2512; --flag-line:#A88A2E; --flag-ink:#EBD58A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --porcelain:#0F1A1C; --surface:#152427; --ink:#E7EEEC; --muted:#A3B4B2; --line:#28393C;
+  --lagoon:#0F5B57; --lagoon-ink:#7CCFC7; --lagoon-soft:#173634; --on-lagoon:#F2F7F5; --on-lagoon-muted:#B7D3CE;
+  --butter:#E9D27D; --butter-ink:#E9D27D;
+  --flag-bg:#2B2512; --flag-line:#A88A2E; --flag-ink:#EBD58A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--porcelain);color:var(--ink);font-family:var(--f-body);font-size:17.5px;line-height:1.62}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lagoon-ink);outline-offset:3px}
+p{margin:0}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.2vw,48px)}
+h3{font-size:24px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--lagoon-ink)}
+.lead{font-size:19px;color:var(--muted);max-width:58ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:2px solid transparent;font-family:var(--f-body);cursor:pointer}
+.btn-main{background:var(--lagoon);color:var(--on-lagoon)}
+.btn-main:hover{filter:brightness(1.12)}
+.btn-soft{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn-soft:hover{border-color:var(--lagoon-ink)}
+.todo{border:1px dashed var(--flag-line);background:var(--flag-bg);color:var(--flag-ink);border-radius:12px;padding:14px 18px;font-size:15px}
+
+/* top bar */
+.topbar{background:var(--lagoon);color:var(--on-lagoon-muted);font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:9px;align-items:center}
+.topbar b{color:var(--on-lagoon);font-weight:600}
+.copy{background:transparent;border:1px solid rgba(255,255,255,.28);color:var(--on-lagoon);font:inherit;font-size:12px;padding:3px 10px;border-radius:999px;cursor:pointer;min-height:28px;margin-left:6px}
+
+/* header */
+header{background:var(--surface);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-block:16px}
+.brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:28px}
+.brand span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--muted);margin-top:5px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 22px;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:15px}
+nav a:hover{color:var(--lagoon-ink)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:56px;padding-block:72px 80px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero h1{font-size:clamp(42px,6vw,74px);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--lagoon-ink);background:linear-gradient(transparent 62%,var(--butter) 62%);padding:0 .06em}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.rating{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted)}
+.stars{color:#C9961A;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:16px;box-shadow:0 18px 40px -28px rgba(13,98,94,.45)}
+.plan .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.plan .price{font-family:var(--f-mono);font-size:15px;background:var(--lagoon-soft);color:var(--lagoon-ink);padding:4px 10px;border-radius:999px}
+.plan h2{font-size:30px}
+.plan ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.plan li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line);align-items:start}
+.plan li span{font-family:var(--f-mono);font-size:13px;color:var(--lagoon-ink);padding-top:3px}
+.plan .note{font-size:14px;color:var(--muted)}
+
+section.block{padding-block:88px}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px;max-width:760px}
+
+/* method */
+.method{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.step .big{font-family:var(--f-display);font-size:44px;color:var(--lagoon-ink);line-height:1}
+.step p{color:var(--muted)}
+.step ul{margin:4px 0 0;padding-left:18px;font-size:15.5px;display:flex;flex-direction:column;gap:4px}
+
+/* reviews */
+.reviews-band{background:var(--lagoon);color:var(--on-lagoon)}
+.reviews-band .label{color:var(--butter)}
+.reviews-band .lead{color:var(--on-lagoon-muted)}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.q{border-top:1px solid rgba(255,255,255,.25);padding-top:20px;display:flex;flex-direction:column;gap:14px;min-width:0;margin:0}
+.q blockquote{margin:0;font-family:var(--f-display);font-size:25px;line-height:1.25}
+.q figcaption{font-size:15px;color:var(--on-lagoon-muted)}
+.q figcaption b{color:var(--on-lagoon)}
+.reviews-foot{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;color:var(--on-lagoon-muted);font-size:15px}
+.reviews-foot a{color:var(--on-lagoon);font-weight:600}
+
+/* team */
+.team{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px}
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;min-width:0}
+.avatar{width:120px;height:150px;border-radius:14px;background:var(--lagoon-soft);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:42px;color:var(--lagoon-ink)}
+.doc h3{font-size:28px}
+.doc .role{color:var(--lagoon-ink);font-weight:600;margin-top:4px}
+.doc ul{margin:14px 0 0;padding-left:18px;color:var(--muted);font-size:15.5px;display:flex;flex-direction:column;gap:4px}
+.others{display:flex;flex-direction:column;gap:16px}
+.others .todo{flex:1}
+
+/* treatments & prices */
+.tx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.t{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.t h3{font-size:22px}
+.t p{color:var(--muted);font-size:15.5px}
+.t .from{margin-top:auto;font-family:var(--f-mono);font-size:13.5px;color:var(--lagoon-ink);padding-top:6px}
+.prices{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.ptable{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:8px 24px;min-width:0}
+.ptable h3{font-size:22px;padding:16px 0 8px}
+.prow{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--line);font-size:16px}
+.prow b{font-family:var(--f-mono);font-weight:500;font-size:14.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pnote{margin-top:16px;color:var(--muted);font-size:15px;max-width:70ch}
+
+/* faq */
+.faq{display:flex;flex-direction:column;max-width:860px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;font-weight:700;font-size:19px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:8px;top:15px;font-size:26px;font-weight:400;color:var(--lagoon-ink)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 22px;color:var(--muted);max-width:68ch}
+
+/* contact */
+.contact{background:var(--surface);border-top:1px solid var(--line)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;padding-block:88px}
+.lines{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.line{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.line .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.line .v{font-weight:600;overflow-wrap:anywhere}
+.line .v small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.c2 .copy{border-color:var(--line);color:var(--lagoon-ink)}
+
+.site-foot{background:var(--porcelain);color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.site-foot .wrap{padding-block:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:960px){
+  .hero .wrap,.team,.contact .wrap,.prices{grid-template-columns:minmax(0,1fr)}
+  .method,.quotes{grid-template-columns:minmax(0,1fr)}
+  .tx{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+  .tx{grid-template-columns:minmax(0,1fr)}
+  .doc{grid-template-columns:minmax(0,1fr)}
+  section.block{padding-block:64px}
+  .line{grid-template-columns:minmax(0,1fr);gap:2px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Telefon și WhatsApp: <b>+40 739 600 606</b><button class="copy" type="button" id="copy-top" data-copy="+40739600606">Copiază</button></span>
+    <span>Luni–vineri 10–20 · sâmbătă 10–14</span>
+    <span>Bd. Regina Elisabeta 2B, Constanța</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#acasa"><b>The Smile Lounge</b><span>CLINICĂ STOMATOLOGICĂ · CONSTANȚA</span></a>
+    <nav aria-label="Meniu principal">
+      <ul>
+        <li><a href="#cum-lucram">Cum lucrăm</a></li>
+        <li><a href="#echipa">Echipa</a></li>
+        <li><a href="#tratamente">Tratamente și prețuri</a></li>
+        <li><a href="#intrebari">Întrebări</a></li>
+        <li><a class="btn btn-main" href="#programare">Programează consultația</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="acasa">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="label">Pentru cine amână dentistul de prea mult timp</span>
+      <h1>Dentistul la care nu-ți mai e <em>frică</em> să mergi.</h1>
+      <p class="lead">Afli ce ai, vezi rezultatul și știi costul înainte să începi. Medicul îți explică fiecare pas, iar decizia o luați împreună.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#programare">Programează consultația</a>
+        <a class="btn btn-soft" href="#tratamente">Vezi prețurile</a>
+      </div>
+      <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>5,0 pe Google</b> din 75 de recenzii</span></div>
+    </div>
+    <aside class="plan" aria-label="Ce primești la consultație">
+      <div class="top"><span class="label">Primul pas</span><span class="price">250 lei</span></div>
+      <h2>Consultația cu plan de tratament</h2>
+      <ol>
+        <li><span>01</span><div>Diagnostic, cu model de studiu</div></li>
+        <li><span>02</span><div>Fotografii intraorale</div></li>
+        <li><span>03</span><div>Plan de tratament, cu etapele și costurile explicate înainte de orice intervenție</div></li>
+      </ol>
+      <p class="note">Consultație simplă: 150 lei. Consultație la medic specialist: 300 lei.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="block" id="cum-lucram" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Cum lucrăm</span>
+      <h2>Vezi. Înțelegi. Te relaxezi.</h2>
+      <p class="lead">Frica de dentist vine de obicei din două lucruri: durerea și necunoscutul. Le luăm pe rând.</p>
+    </div>
+    <div class="method">
+      <article class="step">
+        <span class="big">Vezi</span>
+        <h3>Diagnostic complet, în clinică</h3>
+        <p>Radiografia 3D și scanarea se fac aici, fără drumuri în altă parte și fără amprente clasice.</p>
+        <ul><li>CBCT 3D</li><li>Scanare intraorală 3Shape Trios</li><li>Previzualizarea zâmbetului cu Smile Cloud</li></ul>
+      </article>
+      <article class="step">
+        <span class="big">Înțelegi</span>
+        <h3>Plan clar, fără surprize</h3>
+        <p>Primești explicații la fiecare etapă și costul total înainte să începi. Variantele le discutăm împreună.</p>
+        <ul><li>Etapele tratamentului, pe rând</li><li>Prețuri publicate pe site</li><li>Monitorizare atentă a fiecărei etape</li></ul>
+      </article>
+      <article class="step">
+        <span class="big">Te relaxezi</span>
+        <h3>Disconfort cât mai mic</h3>
+        <p>Anestezie locală modernă, laser pentru intervenții minim invazive și comunicare permanentă pe tot parcursul tratamentului.</p>
+        <ul><li>Laser Biolase</li><li>Igienizare GBT Airflow</li><li>Follow-up după tratament</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block reviews-band">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Ce spun pacienții</span>
+      <h2>Oameni care aveau emoții, în cuvintele lor</h2>
+    </div>
+    <div class="quotes">
+      <figure class="q">
+        <blockquote>„Deși aveam emoții înainte de intervenții…”</blockquote>
+        <figcaption><b>Mitica T.</b> · tratamente de canal, coroane, implant</figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>„O experiență plăcută de la primii pași în cabinet.”</blockquote>
+        <figcaption><b>Popa I.</b> · prima vizită</figcaption>
+      </figure>
+      <figure class="q">
+        <blockquote>„O recomand pe doamna doctor Alexandra Florea, o profesionistă, foarte implicată și foarte pregătită!”</blockquote>
+        <figcaption><b>Adriana L.</b></figcaption>
+      </figure>
+    </div>
+    <div class="reviews-foot"><span class="stars" aria-hidden="true">★★★★★</span><span>5,0 din 75 de recenzii pe Google</span><a href="https://smilelounge.ro/" target="_blank" rel="noopener">Citește toate recenziile</a></div>
+  </div>
+</section>
+
+<section class="block" id="echipa">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Echipa</span>
+      <h2>Știi de la început cine te tratează</h2>
+    </div>
+    <div class="team">
+      <article class="doc">
+        <div class="avatar" aria-hidden="true">AF</div>
+        <div>
+          <h3>Dr. Alexandra Florea</h3>
+          <p class="role">Medic specialist în protetică dentară și implantologie orală</p>
+          <ul>
+            <li>Medicină dentară la Universitatea „Ovidius” Constanța; rezidențiat în protetică la Spitalul Clinic Județean de Urgență Constanța</li>
+            <li>Program avansat de implantologie și protetică, Loma Linda University (SUA)</li>
+            <li>Certificare Invisalign și formări în chirurgie ghidată, analiză funcțională 4D și reabilitări All-on-X</li>
+            <li>Practică clinică în Constanța din 2019</li>
+          </ul>
+        </div>
+      </article>
+      <div class="others">
+        <p class="todo">[DE COMPLETAT DE CLINICĂ: Dr. Ruxandra Radu, fotografie și specializare]</p>
+        <p class="todo">[DE COMPLETAT DE CLINICĂ: Dr. Constantin Arhirii, fotografie și specializare]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="tratamente" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Tratamente și prețuri</span>
+      <h2>Prețurile, spuse dinainte</h2>
+      <p class="lead">Costul final se stabilește după consultație și investigațiile 3D. Îl afli înainte să începi.</p>
+    </div>
+    <div class="tx">
+      <article class="t"><h3>Implanturi dentare</h3><p>Trei sisteme de implant, la alegere. Coroana se adaugă separat.</p><span class="from">de la 2.400 lei / implant</span></article>
+      <article class="t"><h3>All-on-4 și All-on-6</h3><p>Reabilitare completă pe implanturi, cu lucrare provizorie inclusă.</p><span class="from">de la 16.000 lei / arcadă</span></article>
+      <article class="t"><h3>Coroane dentare</h3><p>Metalo-ceramică sau zirconiu, planificate digital.</p><span class="from">de la 1.000 lei / dinte</span></article>
+      <article class="t"><h3>Invisalign</h3><p>Aparat transparent, aproape invizibil, scos la masă și la periaj. De obicei 6–18 luni.</p><span class="from">preț după consultație</span></article>
+      <article class="t"><h3>Fațete Emax și albire</h3><p>Vezi zâmbetul final pe ecran înainte de tratament.</p><span class="from">preț după consultație</span></article>
+      <article class="t"><h3>Igienizare GBT Airflow</h3><p>Îndepărtează placa, tartrul și petele. Recomandată la 6 luni.</p><span class="from">350–550 lei</span></article>
+    </div>
+    <div class="prices">
+      <div class="ptable">
+        <h3>Consultații și igienizare</h3>
+        <div class="prow"><span>Consultație</span><b>150 lei</b></div>
+        <div class="prow"><span>Consultație cu model de studiu, fotografii și plan</span><b>250 lei</b></div>
+        <div class="prow"><span>Consultație medic specialist</span><b>300 lei</b></div>
+        <div class="prow"><span>Igienizare GBT Airflow</span><b>350–550 lei</b></div>
+        <div class="prow"><span>The Dental Spa (Airflow și detartraj)</span><b>600 lei</b></div>
+      </div>
+      <div class="ptable">
+        <h3>Implanturi și chirurgie</h3>
+        <div class="prow"><span>Implant Alpha Gate / 3 Zahn</span><b>2.400 lei</b></div>
+        <div class="prow"><span>Implant Sweden &amp; Martina</span><b>3.500 lei</b></div>
+        <div class="prow"><span>Implant Straumann</span><b>5.000 lei</b></div>
+        <div class="prow"><span>All-on-4 / All-on-6, pe arcadă</span><b>de la 16.000 / 20.000 lei</b></div>
+        <div class="prow"><span>Extracție dinte monoradicular</span><b>250 lei</b></div>
+        <div class="prow"><span>Extracție molar de minte</span><b>650 lei</b></div>
+      </div>
+    </div>
+    <p class="pnote">Prețurile pentru implanturi acoperă etapa chirurgicală. Coroana, sinus liftul și augmentarea osoasă se stabilesc separat, după investigația CBCT.</p>
+    <p class="todo" style="margin-top:16px">[DE CONFIRMAT DE CLINICĂ: plata în rate, de exemplu prin Card Avantaj, și pentru ce sume]</p>
+  </div>
+</section>
+
+<section class="block" id="intrebari" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Întrebări frecvente</span>
+      <h2>Ce ne întreabă pacienții înainte să vină</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Mi-e frică de dentist. O să mă doară?</summary>
+        <p>Am gândit toată experiența astfel încât disconfortul să fie minim: anestezie locală modernă, laser Biolase pentru intervenții minim invazive și un protocol blând. Medicul îți explică fiecare pas înainte să-l facă.</p>
+      </details>
+      <details>
+        <summary>Cât costă un implant dentar și ce include prețul?</summary>
+        <p>Etapa chirurgicală pornește de la 2.400 lei (Alpha Gate), 3.500 lei (Sweden &amp; Martina) sau 5.000 lei (Straumann). Coroana și celelalte componente protetice se plătesc separat. All-on-4 pornește de la 16.000 lei pe arcadă, iar All-on-6 de la 20.000 lei, cu implanturi și lucrare provizorie. Costul final se stabilește după consultație și CBCT.</p>
+      </details>
+      <details>
+        <summary>Pot vedea cum arăt înainte de tratament?</summary>
+        <p>Da. Combinăm scanarea intraorală 3Shape Trios cu analiza 4D MODJAW și îți arătăm rezultatul estimat pe platforma Smile Cloud, ca să-l vezi și să-l aprobi înainte de orice intervenție.</p>
+      </details>
+      <details>
+        <summary>Cât durează Invisalign?</summary>
+        <p>De obicei între 6 și 18 luni, în funcție de caz. Gutierele sunt transparente, aproape invizibile și se scot la masă și la periaj.</p>
+      </details>
+      <details>
+        <summary>Ce este igienizarea GBT Airflow?</summary>
+        <p>O igienizare profesională care îndepărtează placa, tartrul și petele fără abraziune. O recomandăm la fiecare 6 luni. Este sigură și pentru lucrări protetice, implanturi și aparate.</p>
+      </details>
+      <details>
+        <summary>Unde e clinica și cum mă programez?</summary>
+        <p>Pe Bulevardul Regina Elisabeta 2B, etaj 1, în centrul Constanței, cu parcare în apropiere. Te poți programa la telefon, pe WhatsApp sau prin formularul de pe site.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="programare">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+      <span class="label">Programare</span>
+      <h2>Primul pas e o consultație, nu un tratament.</h2>
+      <p class="lead">Sună-ne sau scrie-ne pe WhatsApp. Îți găsim o oră care se potrivește cu programul tău, inclusiv seara până la 20.</p>
+    </div>
+    <div class="lines c2">
+      <div class="line"><span class="k">Telefon</span><span class="v">+40 739 600 606 <button class="copy" type="button" id="copy-phone" data-copy="+40739600606">Copiază</button><small>și pe WhatsApp</small></span></div>
+      <div class="line"><span class="k">E-mail</span><span class="v">contact@smilelounge.ro <button class="copy" type="button" id="copy-mail" data-copy="contact@smilelounge.ro">Copiază</button></span></div>
+      <div class="line"><span class="k">Adresă</span><span class="v">Bulevardul Regina Elisabeta 2B, etaj 1, Spațiul UI1<small>Constanța 900178 · parcare în apropiere</small></span></div>
+      <div class="line"><span class="k">Program</span><span class="v">Luni–vineri 10:00–20:00<small>Sâmbătă 10:00–14:00</small></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="site-foot">
+  <div class="wrap">
+    <span>© 2026 The Smile Lounge · Constanța</span>
+    <span>Rezultatele tratamentelor diferă de la pacient la pacient.</span>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('button[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-copy'),orig=b.textContent;
+    function done(m){b.textContent=m;setTimeout(function(){b.textContent=orig},1500)}
+    try{navigator.clipboard.writeText(t).then(function(){done('Copiat')},function(){done(t)})}catch(e){done(t)}
+  });
+});
+</script>
+</body>
+</html>
